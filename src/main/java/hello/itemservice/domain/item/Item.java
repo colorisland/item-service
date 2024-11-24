@@ -20,7 +20,7 @@ public class Item {
     // 상품 종류
     private ItemType itemType;
     // 배송 방식
-    private DeliveryCode deliveryCode;
+    private String deliveryCode;
 
     public Item() {
     }

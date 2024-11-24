@@ -44,6 +44,7 @@
     <div>판매 여부</div>
     <div>
         <div class="form-check">
+            <!-- checked 속성까지 th:field가 자동으로 해준다. -->
             <input type="checkbox" id="open" th:field="${item.open}" class="form-check-input" disabled>
             <label for="open" class="form-check-label">판매 오픈</label>
         </div>
@@ -59,17 +60,22 @@
         </div>
     </div>
 
+    <hr class="my-4">
+
     <!-- radio button -->
     <div>
         <div>상품 종류</div>
-        <div th:each="type : ${itemTypes}" class="form-check form-check-inline">
-            <input type="radio" th:field="${item.itemType}" th:value="${type.name()}" class="form-check-input" disabled>
-            <label th:for="${#ids.prev('itemType')}" th:text="${type.description}" class="form-check-label">
+        <div th:each="type : ${itemTypes}" class="form-check form-check-inline" >
+            <input type="radio" th:field="${item.itemType}" th:value="${type.name()}"
+                   class="form-check-input" disabled>
+            <label th:for="${#ids.prev('itemType')}" th:text="${type.description}"
+                   class="form-check-label">
                 BOOK
             </label>
         </div>
     </div>
 
+    <hr class="my-4">
     <!-- SELECT -->
     <div>
         <div>배송 방식</div>
@@ -79,9 +85,7 @@
                     th:text="${deliveryCode.displayName}">FAST</option>
         </select>
     </div>
-
     <hr class="my-4">
-
     <div class="row">
         <div class="col">
             <button class="w-100 btn btn-primary btn-lg"
